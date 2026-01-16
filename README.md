@@ -1,70 +1,139 @@
-# Analisis & Prediksi Harga Mobil (Car Price Prediction) 🚗💰
+🚗 Prediksi Harga Mobil Menggunakan Machine Learning
+📌 Deskripsi Proyek
 
-Proyek ini adalah sebuah **Jupyter Notebook** yang bertujuan untuk melakukan analisis data eksploratif (*Exploratory Data Analysis*) dan pembersihan data (*Data Cleaning*) pada dataset harga mobil. Tujuannya adalah untuk memahami faktor-faktor yang mempengaruhi harga jual mobil (MSRP) dan mempersiapkan data yang bersih untuk pemodelan lebih lanjut.
+Proyek ini bertujuan untuk memprediksi harga mobil berdasarkan beberapa fitur penting menggunakan metode Machine Learning (Regression).
+Model dibangun melalui tahapan lengkap mulai dari data preprocessing, EDA, feature engineering, hingga evaluasi model.
 
-## 📋 Daftar Isi
-- [Gambaran Proyek](#gambaran-proyek)
-- [Dataset](#dataset)
-- [Teknologi yang Digunakan](#teknologi-yang-digunakan)
-- [Alur Kerja (Workflow)](#alur-kerja-workflow)
-- [Fitur Data](#fitur-data)
-- [Cara Menjalankan](#cara-menjalankan)
+Proyek ini cocok sebagai latihan end-to-end machine learning workflow untuk pemula.
 
-## 📖 Gambaran Proyek
-Dalam notebook ini, kita memproses data mentah spesifikasi mobil untuk mendapatkan *insight* yang lebih jelas. Langkah-langkah utama meliputi penghapusan data yang tidak relevan, standarisasi nama kolom, penanganan data ganda (*duplicates*), serta deteksi *outlier* menggunakan visualisasi.
+📂 Dataset
 
-## 💾 Dataset
-Proyek ini menggunakan dataset **`data_car.csv`**.
-> **Catatan:** Pastikan file `data_car.csv` berada dalam satu folder yang sama dengan file notebook saat dijalankan.
+Dataset yang digunakan adalah data_car.csv, yang berisi informasi terkait spesifikasi mobil seperti:
 
-## 🛠 Teknologi yang Digunakan
-Analisis ini dibuat menggunakan bahasa pemrograman **Python** dengan library berikut:
-* **Pandas**: Untuk manipulasi dan analisis struktur data.
-* **NumPy**: Untuk operasi numerik.
-* **Matplotlib** & **Seaborn**: Untuk visualisasi data (membuat grafik dan plot).
+Brand / Model
 
-## 🚀 Alur Kerja (Workflow)
-Berikut adalah tahapan analisis yang dilakukan dalam file `Memprediksi_harga_Mobil.ipynb`:
+Tahun
 
-1.  **Import Library & Load Data**: Memuat library Python yang dibutuhkan dan membaca dataset.
-2.  **Data Cleaning (Pembersihan Data)**:
-    * **Menghapus Kolom**: Mengeliminasi kolom yang dianggap kurang relevan untuk analisis harga, seperti *Engine Fuel Type, Market Category, Number of Doors, Popularity, Vehicle Size,* dan *Vehicle Style*.
-    * **Rename Kolom**: Mengubah nama kolom agar lebih singkat dan mudah dipahami (contoh: `Engine HP` ➔ `HP`, `MSRP` ➔ `Price`).
-    * **Menghapus Duplikat**: Mendeteksi dan menghapus baris data yang identik (terdapat sekitar 989 data duplikat yang dibersihkan).
-    * **Handling Missing Values**: Menghapus baris yang memiliki nilai kosong (null) untuk menjaga kualitas data.
-3.  **Exploratory Data Analysis (EDA)**:
-    * Mendeteksi **Outlier** (pencilan data) menggunakan visualisasi *Boxplot* pada fitur-fitur numerik utama:
-        * `Year` (Tahun pembuatan)
-        * `HP` (Tenaga mesin)
-        * `Cylinders` (Jumlah silinder)
-        * `MPG-H` (Konsumsi bahan bakar di jalan tol)
+Transmisi
 
-## 📊 Fitur Data
-Setelah proses pembersihan, berikut adalah fitur-fitur utama yang digunakan:
-* **Make**: Merek mobil (misal: BMW, Audi).
-* **Model**: Model spesifik dari mobil.
-* **Year**: Tahun pembuatan mobil.
-* **HP**: Tenaga mesin (*Horsepower*).
-* **Cylinders**: Jumlah silinder pada mesin.
-* **Transmission**: Tipe transmisi (Manual/Automatic).
-* **Drive Mode**: Sistem penggerak roda (FWD, RWD, AWD).
-* **MPG-H**: Efisiensi bahan bakar di jalan tol (*Highway MPG*).
-* **MPG-C**: Efisiensi bahan bakar dalam kota (*City MPG*).
-* **Price**: Harga jual mobil (*Manufacturer's Suggested Retail Price*).
+Fuel type
 
-## 💻 Cara Menjalankan
-1.  Pastikan kamu sudah menginstal Python dan Jupyter Notebook.
-2.  Install library yang dibutuhkan dengan menjalankan perintah berikut di terminal:
-    ```bash
-    pip install pandas numpy matplotlib seaborn
-    ```
-3.  Clone atau download repositori ini.
-4.  Buka terminal/command prompt di direktori folder proyek.
-5.  Jalankan Jupyter Notebook:
-    ```bash
-    jupyter notebook
-    ```
-6.  Buka file `Memprediksi_harga_Mobil.ipynb` dan jalankan setiap sel (*cell*) kodenya.
+Mileage
 
----
-*Dibuat untuk tujuan pembelajaran Data Science dan Analisis Data.*
+Engine
+
+Power
+
+Seats
+
+Harga mobil (target)
+
+⚙️ Library yang Digunakan
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+
+🔄 Alur Pengerjaan Proyek
+1️⃣ Import Library & Load Data
+
+Mengimpor library yang dibutuhkan
+
+Membaca dataset menggunakan pandas
+
+2️⃣ Data Cleaning & Preprocessing
+
+Beberapa tahapan preprocessing yang dilakukan:
+
+Menghapus kolom yang tidak relevan
+
+Menghapus data duplikat
+
+Menangani missing values
+
+Memisahkan fitur numerik dan kategorikal
+
+Encoding fitur kategorikal
+
+Scaling fitur numerik
+
+Semua preprocessing digabung menggunakan Pipeline & ColumnTransformer untuk menghindari data leakage.
+
+3️⃣ Exploratory Data Analysis (EDA)
+
+Melihat distribusi data
+
+Visualisasi hubungan fitur dengan harga mobil
+
+Scatter plot antara nilai aktual dan prediksi
+
+4️⃣ Train-Test Split
+
+Data dibagi menjadi:
+
+Training set
+
+Testing set
+
+Menggunakan:
+
+train_test_split()
+
+5️⃣ Model Machine Learning
+
+Model yang digunakan:
+
+Linear Regression
+
+Model diimplementasikan dalam Pipeline agar preprocessing dan training berjalan otomatis.
+
+6️⃣ Evaluasi Model
+
+Metrik evaluasi yang digunakan:
+
+R² Score
+
+Mean Absolute Error (MAE)
+
+Evaluasi dilakukan pada:
+
+Data training
+
+Data testing
+
+7️⃣ Visualisasi Hasil Prediksi
+
+Scatter plot Actual vs Predicted
+
+Garis diagonal untuk melihat seberapa dekat prediksi dengan nilai aktual
+
+📊 Hasil & Insight
+
+Model mampu mempelajari pola harga mobil dengan cukup baik
+
+Selisih prediksi dapat dilihat melalui visualisasi
+
+Cocok sebagai baseline model sebelum mencoba algoritma lain seperti:
+
+Random Forest
+
+XGBoost
+
+Gradient Boosting
+
+🚀 Pengembangan Selanjutnya
+
+Beberapa improvement yang bisa dilakukan:
+
+Menggunakan model non-linear
+
+Hyperparameter tuning
+
+Feature selection
+
+Deploy model ke web app (Streamlit)
+
+🧠 Kesimpulan
+
+Proyek ini menunjukkan bagaimana membangun model regresi dari awal hingga evaluasi dengan workflow yang rapi dan aman dari data leakage menggunakan Pipeline.
